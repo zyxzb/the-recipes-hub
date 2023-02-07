@@ -16,6 +16,13 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
+    margin: 0 5px;
+    span {
+      color: ${({ singleIsLoading }) =>
+        singleIsLoading ? 'transparent' : 'black'};
+      background-color: ${({ singleIsLoading }) =>
+        singleIsLoading ? '#eee' : 'transparent'};
+    }
   }
   svg {
     font-size: 2rem;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Wrapper } from './SearchInput.styles';
 
-export const Wrapper = styled.nav`
+export const NavWrapper = styled.nav`
   z-index: 999;
   position: fixed;
   width: 100vw;
@@ -16,6 +17,15 @@ export const Wrapper = styled.nav`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    @media (min-width: 992px) {
+      display: block;
+    }
+  }
   a {
     margin: 0 10px;
     color: black;
@@ -30,5 +40,15 @@ export const Wrapper = styled.nav`
       margin-right: 1rem;
       font-size: 2rem;
     }
+  }
+  .links {
+    display: flex;
+    align-items: center;
+  }
+  ${Wrapper} {
+    width: 180px;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 `;

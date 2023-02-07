@@ -24,12 +24,6 @@ const Wrapper = styled.div`
       font-weight: bold;
     }
   }
-  .cards-container {
-    display: flex;
-    margin: 0 auto;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
 `;
 
 const DishesTypes = () => {

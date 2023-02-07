@@ -1,5 +1,6 @@
 import HomePage from './HomePage';
-import AboutPage from './AboutPage';
 import RecipePage from './RecipePage';
+import SearchedPage from './SearchedPage';
+import SimilarPage from './SimilarPage';
 
-export { HomePage, AboutPage, RecipePage };
+export { HomePage, RecipePage, SearchedPage, SimilarPage };

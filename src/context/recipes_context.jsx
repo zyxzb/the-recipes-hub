@@ -8,10 +8,14 @@ export const RecipesProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [singleRecipeId, setSingleRecipeId] = useState(1);
   const [singleRecipe, setSingleRecipe] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [singleIsLoading, setSingleIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [singleIsLoading, setSingleIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [dishTypeName, setDishTypeName] = useState('breakfast');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [similarRecipesId, setSimilarRecipesId] = useState(0);
+  const [similarRecipes, setSimilarRecipes] = useState([]);
+  const [similarIsLoading, setSimilarIsLoading] = useState(false);
 
   const fetchRecipes = async () => {
     setIsLoading(true);
@@ -43,6 +47,18 @@ export const RecipesProvider = ({ children }) => {
     }
   };
 
+  const fetchSimilarRecipes = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.spoonacular.com/recipes/${similarRecipesId}/similar?apiKey=${process.env.REACT_APP_SPOONACULAR_API}`,
+      );
+      const recipes = response.data;
+      setSimilarRecipes(recipes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchRecipes();
     //eslint-disable-next-line
@@ -53,9 +69,17 @@ export const RecipesProvider = ({ children }) => {
     //  eslint-disable-next-line
   }, [singleRecipeId]);
 
+  useEffect(() => {
+    if (similarRecipesId !== 0) {
+      fetchSimilarRecipes();
+    }
+    //eslint-disable-next-line
+  }, [similarRecipesId]);
+
   return (
     <RecipesContext.Provider
       value={{
+        searchValue,
         setSearchValue,
         isLoading,
         recipes,
@@ -65,6 +89,12 @@ export const RecipesProvider = ({ children }) => {
         setSingleRecipeId,
         singleRecipe,
         singleIsLoading,
+        searchOpen,
+        setSearchOpen,
+        // similarRecipes
+        similarRecipesId,
+        setSimilarRecipesId,
+        similarRecipes,
       }}
     >
       {children}

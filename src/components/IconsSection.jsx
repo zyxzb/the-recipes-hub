@@ -5,38 +5,39 @@ import { RiHandHeartLine } from 'react-icons/ri';
 import { formatPrice } from 'utils/constants';
 import { Wrapper } from 'assets/wrappers/IconsSection.styles';
 
-const IconsSection = ({ singleRecipe }) => {
+const IconsSection = ({ singleRecipe, singleIsLoading }) => {
   const { glutenFree, readyInMinutes, pricePerServing, veryHealthy, servings } =
     singleRecipe;
   return (
-    <Wrapper>
+    <Wrapper singleIsLoading={singleIsLoading}>
       <span>
         <TbSeedingOff />
-        <span>Gluten-free{glutenFree ? `YES` : `NO`}</span>
+        <span>Gluten-free: {glutenFree ? ` YES` : ` NO`}</span>
       </span>
       <span>
         <AiOutlineClockCircle />
         <span>
-          Ready in {readyInMinutes}
-          minutes
+          Ready in{` `}
+          {readyInMinutes}
+          {` `}minutes
         </span>
       </span>
       <span>
         <TbCurrencyDollar />
         <span>
           {formatPrice(pricePerServing)}
-          per serving
+          {` `}per serving
         </span>
       </span>
       <span>
         <RiHandHeartLine />
-        <span>Healthy: {veryHealthy ? `YES` : `NO`}</span>
+        <span>Super Healthy:{veryHealthy ? ` YES` : ` NO`}</span>
       </span>
       <span>
         <MdOutlineRoomService />
         <span>
           {servings}
-          Servings
+          {` `}Servings
         </span>
       </span>
     </Wrapper>

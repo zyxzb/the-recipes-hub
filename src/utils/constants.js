@@ -18,3 +18,11 @@ export const formatPrice = (price) => {
   });
   return priceInDollars;
 };
+
+export const trimText = (text) => {
+  if (text.length > 40) {
+    let newText = text.slice(0, 40).replace(/\s?$/, '') + '...';
+    return newText;
+  }
+  return text;
+};

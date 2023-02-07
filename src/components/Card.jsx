@@ -1,10 +1,11 @@
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 import { useRecipesContext } from 'context/recipes_context';
 import { AiFillHeart } from 'react-icons/ai';
 import { MdFindReplace, MdOutlineFormatListBulleted } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Wrapper } from 'assets/wrappers/Card.styles';
+import noImage from 'assets/images/unsplash-banner.jpg';
+import { trimText } from 'utils/constants';
 
 const Card = ({ recipe }) => {
   const { image, title, id } = recipe;
@@ -34,16 +35,16 @@ const Card = ({ recipe }) => {
 
   return (
     <Wrapper>
-      <img src={image} alt={title} className='image' />
+      <img src={image || noImage} alt={title} className='image' />
       <AiFillHeart className='like' aria-label='add to favorites' />
       <div className='content'>
-        <h3>{title}</h3>
+        <h3>{trimText(title)}</h3>
         <hr />
         <div className='buttons'>
-          <Link to={`recipe/${id}`}>
+          <Link to={`/recipe/${id}`}>
             recipe <MdOutlineFormatListBulleted />
           </Link>
-          <Link to=''>
+          <Link to={`/similar/${id}`}>
             similar <MdFindReplace />
           </Link>
         </div>

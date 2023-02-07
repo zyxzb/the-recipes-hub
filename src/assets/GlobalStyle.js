@@ -26,6 +26,9 @@ h1, h2, h3, h4, h5{
 .m-50{
   margin: 50px auto;
 }
+.text-center{
+  text-align: center;
+}
 .mt-100 {
   margin-top: 100px;
 }
@@ -39,5 +42,12 @@ h1, h2, h3, h4, h5{
 .section-100 {
   width: 100vw;
   margin: 0 auto;
+}
+.cards-container{
+    display: flex;
+    margin: 0 auto;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: center;
 }
 `;

@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import { Footer, Nav } from 'components';
 import ScrollToTop from './ScrollToTop';
+import SearchView from 'components/SearchView';
 
 const RootLayout = () => {
   return (
@@ -15,6 +16,7 @@ const RootLayout = () => {
           <Outlet />
         </ScrollToTop>
       </main>
+      <SearchView />
       <Footer />
     </ThemeProvider>
   );

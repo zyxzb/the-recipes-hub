@@ -1,13 +1,13 @@
 import React from 'react';
 
-const AboutPage = () => {
+const SearchedPage = () => {
   return (
     <div className='mt-100 '>
       <div className='section-90'>
-        <h1>About Page</h1>
+        <h1>Searched Recipes Page</h1>
       </div>
     </div>
   );
 };
 
-export default AboutPage;
+export default SearchedPage;

@@ -21,8 +21,11 @@ export const Wrapper = styled.div`
   article {
     flex-direction: column;
     line-height: 1.5rem;
-    img {
+    .image {
+      display: flex;
       width: 100%;
+      height: 100%;
+      min-height: 400px;
       max-width: 600px;
       margin: 0 auto 50px;
     }
