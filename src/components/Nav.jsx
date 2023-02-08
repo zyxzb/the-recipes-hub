@@ -6,20 +6,24 @@ import SearchInput from './SearchInput';
 import { useRecipesContext } from 'context/recipes_context';
 
 const Nav = () => {
-  const { setSearchOpen } = useRecipesContext();
+  const { setSearchOpen, setSidebarOpen } = useRecipesContext();
 
   return (
     <NavWrapper>
       <div className='icons'>
-        <RxHamburgerMenu />
-        <AiOutlineHeart />
+        <button>
+          <RxHamburgerMenu onClick={() => setSidebarOpen(true)} />
+        </button>
+        <NavLink to='saved-recipes'>
+          <AiOutlineHeart /> Saved Recipes
+          <span>{0}</span>
+        </NavLink>
       </div>
       <h1>The Recipe Hub</h1>
       <div className='links'>
-        <NavLink to='/'>Home</NavLink>
-        {/* <NavLink to='about'>About</NavLink> */}
+        <NavLink to='/'>HOME</NavLink>
         <div onClick={() => setSearchOpen(true)}>
-          <SearchInput placeholder='Search..' />
+          <SearchInput placeholder='Search..' disabled='disabled' />
         </div>
       </div>
     </NavWrapper>

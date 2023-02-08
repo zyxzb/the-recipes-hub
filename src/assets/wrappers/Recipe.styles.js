@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
       min-height: 400px;
       max-width: 600px;
       margin: 0 auto 50px;
+      object-fit: cover;
     }
     summary {
       margin: 0 auto 50px;

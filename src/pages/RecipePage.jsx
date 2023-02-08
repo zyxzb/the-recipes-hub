@@ -14,8 +14,9 @@ const RecipePage = () => {
 
   useEffect(() => {
     setSingleRecipeId(id);
+    // empty array for external links
     // eslint-disable-next-line
-  }, [id]);
+  }, []);
 
   if (singleIsLoading) {
     return (

@@ -31,15 +31,34 @@ export const NavWrapper = styled.nav`
     color: black;
     text-decoration: none;
     border-bottom: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
     &.active {
-      border-bottom: 1px solid black;
+      font-weight: bold;
+    }
+    @media (max-width: 992px) {
+      display: none;
     }
   }
   .icons {
+    display: flex;
     svg {
-      margin-right: 1rem;
       font-size: 2rem;
+      margin-right: 0.5rem;
     }
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      @media (min-width: 992px) {
+        display: none;
+      }
+    }
+  }
+  .saved-recipes {
+    position: relative;
   }
   .links {
     display: flex;

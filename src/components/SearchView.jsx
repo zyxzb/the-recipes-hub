@@ -6,7 +6,7 @@ import SearchInput from './SearchInput';
 const SearchView = () => {
   const { searchOpen, setSearchOpen } = useRecipesContext();
   return (
-    <Wrapper searchOpen={searchOpen}>
+    <Wrapper searchOpen={searchOpen} tabIndex={searchOpen ? 1 : -1}>
       <div>
         <button onClick={() => setSearchOpen(false)}>
           <IoMdClose />

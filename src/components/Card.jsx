@@ -9,9 +9,10 @@ import { trimText } from 'utils/constants';
 
 const Card = ({ recipe }) => {
   const { image, title, id } = recipe;
-  const { isLoading } = useRecipesContext();
+  const { isLoading, similarIsLoading, searchIsLoading, setSingleRecipeId } =
+    useRecipesContext();
 
-  if (isLoading) {
+  if (isLoading || similarIsLoading || searchIsLoading) {
     return (
       <Wrapper>
         <Skeleton className='image' />
@@ -44,7 +45,7 @@ const Card = ({ recipe }) => {
           <Link to={`/recipe/${id}`}>
             recipe <MdOutlineFormatListBulleted />
           </Link>
-          <Link to={`/similar/${id}`}>
+          <Link to={`/similar/${id}`} onClick={() => setSingleRecipeId(id)}>
             similar <MdFindReplace />
           </Link>
         </div>
