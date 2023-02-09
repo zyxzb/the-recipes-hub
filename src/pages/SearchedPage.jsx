@@ -38,7 +38,7 @@ const SearchedPage = () => {
         <h1 className='m-50 text-center'>Recipes based on: {searchValue}</h1>
         <div className='cards-container'>
           {searchRecipes.map((recipe) => (
-            <Card recipe={recipe} key={recipe.id} />
+            <Card recipe={recipe} key={recipe.id} likeIcon={true} />
           ))}
         </div>
       </div>

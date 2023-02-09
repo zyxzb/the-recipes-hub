@@ -6,10 +6,12 @@ export const Wrapper = styled.div`
   border: 1px solid #eee;
   height: 360px;
   min-width: 280px;
+  max-width: 400px;
   flex: 1;
   transition: border ease-in-out 0.3s;
   position: relative;
-  .like {
+  .like,
+  .delete {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -18,6 +20,11 @@ export const Wrapper = styled.div`
     cursor: pointer;
     &:hover {
       color: #ff7575;
+    }
+  }
+  .delete {
+    &:hover {
+      color: black;
     }
   }
   hr {

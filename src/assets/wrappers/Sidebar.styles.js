@@ -7,7 +7,7 @@ export const Wrapper = styled.aside`
   height: 100%;
   width: 100%;
   z-index: 9999;
-  background: rgba(121, 117, 117, 0.5);
+  background: rgba(121, 117, 117, 0.8);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);

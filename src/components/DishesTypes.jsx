@@ -16,12 +16,19 @@ const Wrapper = styled.div`
   }
   li {
     list-style-type: none;
-    margin: 5px 20px;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
     cursor: pointer;
     text-transform: capitalize;
+    transition: border 0.3s ease;
+    &:hover {
+      border: 1px solid black;
+    }
     &.active {
-      text-decoration: underline;
       font-weight: bold;
+      border: 1px solid black;
     }
   }
 `;
@@ -49,7 +56,7 @@ const DishesTypes = () => {
       </div>
       <div className='cards-container'>
         {recipes.map((recipe, index) => (
-          <Card recipe={recipe} key={index} />
+          <Card recipe={recipe} key={index} likeIcon={true} />
         ))}
       </div>
     </Wrapper>

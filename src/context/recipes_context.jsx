@@ -2,13 +2,22 @@ import React, { useContext, useState, useEffect } from 'react';
 import { searchRecipesUrl } from 'utils/constants';
 import axios from 'axios';
 
+const getLocalStorage = () => {
+  let localStorageRecipes = localStorage.getItem('recipes');
+  if (localStorageRecipes) {
+    return JSON.parse(localStorage.getItem('recipes'));
+  } else {
+    return [];
+  }
+};
+
 const RecipesContext = React.createContext();
 
 export const RecipesProvider = ({ children }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [recipes, setRecipes] = useState([]);
-  const [singleRecipeId, setSingleRecipeId] = useState(1);
+  const [singleRecipeId, setSingleRecipeId] = useState(0);
   const [singleRecipe, setSingleRecipe] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [singleIsLoading, setSingleIsLoading] = useState(false);
@@ -19,8 +28,11 @@ export const RecipesProvider = ({ children }) => {
   const [similarIsLoading, setSimilarIsLoading] = useState(false);
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchRecipes, setSearchRecipes] = useState([]);
+  const [savedRecipes, setSavedRecipes] = useState(getLocalStorage());
+  console.log(savedRecipes);
 
   const fetchRecipes = async () => {
+    // console.log('Fetching recipes (Meal Type - 1)');
     setIsLoading(true);
     try {
       const response = await axios.get(
@@ -36,6 +48,7 @@ export const RecipesProvider = ({ children }) => {
   };
 
   const fetchSingleRecipe = async () => {
+    // console.log('Fetching single recipe (2)');
     setSingleIsLoading(true);
     try {
       const response = await axios.get(
@@ -51,6 +64,7 @@ export const RecipesProvider = ({ children }) => {
   };
 
   const fetchSimilarRecipes = async () => {
+    console.log('Fetching similar recipes (3)');
     setSimilarIsLoading(true);
     try {
       const response = await axios.get(
@@ -66,7 +80,7 @@ export const RecipesProvider = ({ children }) => {
   };
 
   const fetchSearchRecipes = async () => {
-    console.log('triggering search');
+    console.log('Fetching search recipes (4)');
     setSearchIsLoading(true);
     try {
       const response = await axios.get(
@@ -87,7 +101,9 @@ export const RecipesProvider = ({ children }) => {
   }, [dishTypeName]);
 
   useEffect(() => {
-    fetchSingleRecipe();
+    if (singleRecipeId !== 0) {
+      fetchSingleRecipe();
+    }
     //  eslint-disable-next-line
   }, [singleRecipeId]);
 
@@ -104,6 +120,10 @@ export const RecipesProvider = ({ children }) => {
     }
     //eslint-disable-next-line
   }, [searchValue]);
+
+  useEffect(() => {
+    localStorage.setItem('recipes', JSON.stringify(savedRecipes));
+  }, [savedRecipes]);
 
   return (
     <RecipesContext.Provider
@@ -131,6 +151,8 @@ export const RecipesProvider = ({ children }) => {
         searchIsLoading,
         sidebarOpen,
         setSidebarOpen,
+        setSavedRecipes,
+        savedRecipes,
       }}
     >
       {children}

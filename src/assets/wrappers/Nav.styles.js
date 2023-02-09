@@ -45,8 +45,9 @@ export const NavWrapper = styled.nav`
   .icons {
     display: flex;
     svg {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-right: 0.5rem;
+      color: black;
     }
     button {
       border: none;
@@ -56,9 +57,22 @@ export const NavWrapper = styled.nav`
         display: none;
       }
     }
-  }
-  .saved-recipes {
-    position: relative;
+    .counter-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      svg {
+        color: ${({ recipesAmount }) =>
+          recipesAmount > 0 ? '#ff7575' : '#565656'};
+        position: relative;
+      }
+    }
+    .counter {
+      position: absolute;
+      left: 16px;
+      color: ${({ recipesAmount }) => (recipesAmount > 0 ? 'black' : 'white')};
+    }
   }
   .links {
     display: flex;

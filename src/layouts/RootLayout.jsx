@@ -6,6 +6,8 @@ import { Footer, Nav } from 'components';
 import ScrollToTop from './ScrollToTop';
 import SearchView from 'components/SearchView';
 import Sidebar from 'components/Sidebar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RootLayout = () => {
   return (
@@ -20,6 +22,7 @@ const RootLayout = () => {
       <SearchView />
       <Sidebar />
       <Footer />
+      <ToastContainer />
     </ThemeProvider>
   );
 };

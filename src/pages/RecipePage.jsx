@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecipesContext } from 'context/recipes_context';
 import { Wrapper } from 'assets/wrappers/Recipe.styles';
-import { IconsSection, LinkBtn } from 'components';
+import { IconsSection, LinkBtn, FunctionalButtons } from 'components';
 import Skeleton from 'react-loading-skeleton';
 
 const RecipePage = () => {
@@ -11,6 +11,8 @@ const RecipePage = () => {
     useRecipesContext();
   const { title, image, summary, instructions, extendedIngredients } =
     singleRecipe;
+
+  const componentRef = useRef();
 
   useEffect(() => {
     setSingleRecipeId(id);
@@ -44,14 +46,15 @@ const RecipePage = () => {
         </article>
         <div className='buttons mt-50'>
           <LinkBtn to='/' text='Home' />
-          <LinkBtn to={`/similar/${id}`} text='Find Similar Recipe' />
+          <LinkBtn to='/' text='Find Similar Recipe' />
+          <FunctionalButtons />
         </div>
       </Wrapper>
     );
   }
 
   return (
-    <Wrapper>
+    <Wrapper ref={componentRef}>
       <h1>{title}</h1>
       <IconsSection singleRecipe={singleRecipe} />
       <article>
@@ -67,7 +70,7 @@ const RecipePage = () => {
             <ul>
               {extendedIngredients?.map((item, id) => {
                 const { original } = item;
-                return <li key={id}>{original}, </li>;
+                return <li key={id}>{original}</li>;
               })}
             </ul>
           </div>
@@ -76,6 +79,7 @@ const RecipePage = () => {
       <div className='buttons mt-50'>
         <LinkBtn to='/' text='Home' />
         <LinkBtn to={`/similar/${id}`} text='Find Similar Recipe' />
+        <FunctionalButtons componentRef={componentRef} id={id} />
       </div>
     </Wrapper>
   );

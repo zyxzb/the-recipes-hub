@@ -20,7 +20,6 @@ const SearchInput = ({ placeholder, disabled }) => {
   };
 
   useEffect(() => {
-    console.log(formRef.current);
     formRef.current.focus();
   }, []);
 

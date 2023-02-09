@@ -5,5 +5,15 @@ import Card from './Card';
 import IconsSection from './IconsSection';
 import LinkBtn from './LinkBtn';
 import DishesTypes from './DishesTypes';
+import FunctionalButtons from './FunctionalButtons';
 
-export { Nav, Footer, Banner, Card, IconsSection, LinkBtn, DishesTypes };
+export {
+  Nav,
+  Footer,
+  Banner,
+  Card,
+  IconsSection,
+  LinkBtn,
+  DishesTypes,
+  FunctionalButtons,
+};

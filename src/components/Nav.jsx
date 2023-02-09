@@ -1,22 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import { NavWrapper } from 'assets/wrappers/Nav.styles';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
 import SearchInput from './SearchInput';
 import { useRecipesContext } from 'context/recipes_context';
 
 const Nav = () => {
-  const { setSearchOpen, setSidebarOpen } = useRecipesContext();
+  const { setSearchOpen, setSidebarOpen, savedRecipes } = useRecipesContext();
+  let recipesAmount = savedRecipes.length;
 
   return (
-    <NavWrapper>
+    <NavWrapper recipesAmount={recipesAmount}>
       <div className='icons'>
         <button>
           <RxHamburgerMenu onClick={() => setSidebarOpen(true)} />
         </button>
         <NavLink to='saved-recipes'>
-          <AiOutlineHeart /> Saved Recipes
-          <span>{0}</span>
+          <div className='counter-container'>
+            <AiFillHeart /> Saved {recipesAmount !== 1 ? 'Recipes' : 'Recipe'}
+            <span className='counter'>{recipesAmount}</span>
+          </div>
         </NavLink>
       </div>
       <h1>The Recipe Hub</h1>

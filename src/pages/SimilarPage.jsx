@@ -44,7 +44,7 @@ const SimilarPage = () => {
         </h1>
         <div className='cards-container'>
           {similarRecipes.map((recipe) => (
-            <Card recipe={recipe} key={recipe.id} />
+            <Card recipe={recipe} key={recipe.id} likeIcon={true} />
           ))}
         </div>
       </div>
