@@ -6,7 +6,8 @@ import SearchInput from './SearchInput';
 import { useRecipesContext } from 'context/recipes_context';
 
 const Nav = () => {
-  const { setSearchOpen, setSidebarOpen, savedRecipes } = useRecipesContext();
+  const { setSearchOpen, setSidebarOpen, savedRecipes, setSearchBy } =
+    useRecipesContext();
   let recipesAmount = savedRecipes.length;
 
   return (
@@ -25,7 +26,12 @@ const Nav = () => {
       <h1>The Recipe Hub</h1>
       <div className='links'>
         <NavLink to='/'>HOME</NavLink>
-        <div onClick={() => setSearchOpen(true)}>
+        <div
+          onClick={() => {
+            setSearchOpen(true);
+            setSearchBy('name');
+          }}
+        >
           <SearchInput placeholder='Search..' disabled='disabled' />
         </div>
       </div>

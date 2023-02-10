@@ -17,6 +17,7 @@ const Card = ({ recipe, likeIcon, deleteIcon }) => {
     setSingleRecipeId,
     setSavedRecipes,
     savedRecipes,
+    ingredientsLoading,
   } = useRecipesContext();
 
   const handleSaveRecipe = () => {
@@ -42,7 +43,7 @@ const Card = ({ recipe, likeIcon, deleteIcon }) => {
     toast.info(`${title} removed from your recipes!`);
   };
 
-  if (isLoading || similarIsLoading || searchIsLoading) {
+  if (isLoading || similarIsLoading || searchIsLoading || ingredientsLoading) {
     return (
       <Wrapper>
         <Skeleton className='image' />

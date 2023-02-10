@@ -1,9 +1,12 @@
 import BannerImg from 'assets/images/unsplash-banner.jpg';
 import { Wrapper } from 'assets/wrappers/Banner.styles';
+import { useRecipesContext } from 'context/recipes_context';
 import { TypeAnimation } from 'react-type-animation';
 import SearchInput from './SearchInput';
 
 const Banner = () => {
+  const { searchBy, setSearchBy } = useRecipesContext();
+
   return (
     <Wrapper>
       <div className='banner-container'>
@@ -24,7 +27,29 @@ const Banner = () => {
               repeat={Infinity}
             />
           </div>
-          <SearchInput placeholder='Find your next dish..' />
+          <SearchInput
+            placeholder={
+              searchBy === 'ingredients'
+                ? 'Add spaces between ingredients..'
+                : 'Find your next dish..'
+            }
+          />
+          <div className='find-by'>
+            <button
+              type='button'
+              className={searchBy === 'name' ? 'active' : null}
+              onClick={() => setSearchBy('name')}
+            >
+              by name
+            </button>
+            <button
+              type='button'
+              className={searchBy === 'ingredients' ? 'active' : null}
+              onClick={() => setSearchBy('ingredients')}
+            >
+              by ingredients
+            </button>
+          </div>
         </div>
       </div>
     </Wrapper>

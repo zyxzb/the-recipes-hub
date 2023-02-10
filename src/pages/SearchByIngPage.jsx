@@ -1,21 +1,13 @@
 import { useRecipesContext } from 'context/recipes_context';
 import { Card, InfoError } from 'components';
 import Skeleton from 'react-loading-skeleton';
-import { useParams, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-const SearchedPage = () => {
-  const { name } = useParams();
-  const location = useLocation();
-  const { searchRecipes, setSearchValue, searchValue, searchIsLoading } =
-    useRecipesContext();
+const SearchByIngPage = () => {
+  const { ingredients } = useParams();
+  const { ingredientsLoading, ingredientsRecipes } = useRecipesContext();
 
-  useEffect(() => {
-    setSearchValue(name);
-    // eslint-disable-next-line
-  }, [location]);
-
-  if (searchIsLoading) {
+  if (ingredientsLoading) {
     return (
       <div className='mt-100'>
         <div className='section-90'>
@@ -23,7 +15,7 @@ const SearchedPage = () => {
             <Skeleton width={300} />
           </h1>
           <div className='cards-container'>
-            {searchRecipes.map((recipe) => (
+            {ingredientsRecipes.map((recipe) => (
               <Card recipe={recipe} key={recipe.id} />
             ))}
           </div>
@@ -35,11 +27,11 @@ const SearchedPage = () => {
   return (
     <div className='mt-100'>
       <div className='section-90'>
-        <h1 className='m-50 text-center'>Recipes based on: {searchValue}</h1>
+        <h1 className='m-50 text-center'>Recipes based on: {ingredients}</h1>
         <div className='cards-container'>
-          {searchRecipes.length > 0 ? (
-            searchRecipes.map((recipe) => (
-              <Card recipe={recipe} key={recipe.id} />
+          {ingredientsRecipes.length > 0 ? (
+            ingredientsRecipes.map((recipe) => (
+              <Card recipe={recipe} key={recipe.id} likeIcon={true} />
             ))
           ) : (
             <InfoError text='no recipe found, search again' />
@@ -50,4 +42,4 @@ const SearchedPage = () => {
   );
 };
 
-export default SearchedPage;
+export default SearchByIngPage;

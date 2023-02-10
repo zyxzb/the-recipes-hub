@@ -29,10 +29,16 @@ export const RecipesProvider = ({ children }) => {
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchRecipes, setSearchRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState(getLocalStorage());
-  console.log(savedRecipes);
+  const [searchBy, setSearchBy] = useState('name');
+  const [ingredientsUrl, setIngredientsUrl] = useState('');
+  const [ingredientsArray, setIngredientsArray] = useState([]);
+  const [ingredientsLoading, setIngredientsLoading] = useState(false);
+  const [ingredientsRecipes, setIngredientsRecipes] = useState([]);
+
+  console.log(ingredientsUrl, ingredientsRecipes);
 
   const fetchRecipes = async () => {
-    // console.log('Fetching recipes (Meal Type - 1)');
+    console.log('Fetching recipes (Meal Type - 1)');
     setIsLoading(true);
     try {
       const response = await axios.get(
@@ -48,7 +54,7 @@ export const RecipesProvider = ({ children }) => {
   };
 
   const fetchSingleRecipe = async () => {
-    // console.log('Fetching single recipe (2)');
+    console.log('Fetching single recipe (2)');
     setSingleIsLoading(true);
     try {
       const response = await axios.get(
@@ -95,6 +101,23 @@ export const RecipesProvider = ({ children }) => {
     }
   };
 
+  const fetchWithIngredients = async () => {
+    console.log('Fetching search with ingredients (5)');
+    setIngredientsLoading(true);
+    try {
+      const response = await axios.get(
+        // this request needs '&' instead of '?' before apiKey
+        `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsUrl}&apiKey=${process.env.REACT_APP_SPOONACULAR_API}`,
+      );
+      const recipes = response.data;
+      setIngredientsRecipes(recipes);
+      setIngredientsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIngredientsLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchRecipes();
     //eslint-disable-next-line
@@ -120,6 +143,13 @@ export const RecipesProvider = ({ children }) => {
     }
     //eslint-disable-next-line
   }, [searchValue]);
+
+  useEffect(() => {
+    if (ingredientsUrl.length > 0) {
+      fetchWithIngredients();
+    }
+    //eslint-disable-next-line
+  }, [ingredientsUrl]);
 
   useEffect(() => {
     localStorage.setItem('recipes', JSON.stringify(savedRecipes));
@@ -153,6 +183,14 @@ export const RecipesProvider = ({ children }) => {
         setSidebarOpen,
         setSavedRecipes,
         savedRecipes,
+        searchBy,
+        setSearchBy,
+        ingredientsUrl,
+        setIngredientsUrl,
+        ingredientsArray,
+        setIngredientsArray,
+        ingredientsLoading,
+        ingredientsRecipes,
       }}
     >
       {children}

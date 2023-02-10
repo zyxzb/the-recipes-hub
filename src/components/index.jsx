@@ -6,6 +6,7 @@ import IconsSection from './IconsSection';
 import LinkBtn from './LinkBtn';
 import DishesTypes from './DishesTypes';
 import FunctionalButtons from './FunctionalButtons';
+import InfoError from './InfoError';
 
 export {
   Nav,
@@ -16,4 +17,5 @@ export {
   LinkBtn,
   DishesTypes,
   FunctionalButtons,
+  InfoError,
 };
