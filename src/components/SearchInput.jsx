@@ -38,7 +38,7 @@ const SearchInput = ({ placeholder, disabled }) => {
 
   return (
     <Wrapper>
-      <button type='submit' onClick={handleSubmit}>
+      <button type='submit' aria-label='search recipes' onClick={handleSubmit}>
         <AiOutlineSearch />
       </button>
       <input

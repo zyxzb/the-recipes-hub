@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <NavWrapper recipesAmount={recipesAmount}>
       <div className='icons'>
-        <button>
+        <button aria-label='open sidebar'>
           <RxHamburgerMenu onClick={() => setSidebarOpen(true)} />
         </button>
         <NavLink to='saved-recipes'>

@@ -1,4 +1,6 @@
 import BannerImg from 'assets/images/unsplash-banner.jpg';
+import BannerWebP from 'assets/images/unsplash-banner.webp';
+import SmallBannerWebP from 'assets/images/unsplash-banner-768.webp';
 import { Wrapper } from 'assets/wrappers/Banner.styles';
 import { useRecipesContext } from 'context/recipes_context';
 import { TypeAnimation } from 'react-type-animation';
@@ -10,7 +12,19 @@ const Banner = () => {
   return (
     <Wrapper>
       <div className='banner-container'>
-        <img src={BannerImg} alt='banner' />
+        <picture>
+          <source
+            type='image/webp'
+            media='(max-width: 768px)'
+            srcSet={SmallBannerWebP}
+          />
+          <source
+            type='image/webp'
+            media='(min-width: 769px)'
+            srcSet={BannerWebP}
+          />
+          <img src={BannerImg} alt='banner' srcSet='' />
+        </picture>
         <div className='content'>
           <div className='type-wrapper'>
             <TypeAnimation
@@ -37,6 +51,7 @@ const Banner = () => {
           <div className='find-by'>
             <button
               type='button'
+              aria-label='search by name'
               className={searchBy === 'name' ? 'active' : null}
               onClick={() => setSearchBy('name')}
             >
@@ -44,6 +59,7 @@ const Banner = () => {
             </button>
             <button
               type='button'
+              aria-label='search by ingredients'
               className={searchBy === 'ingredients' ? 'active' : null}
               onClick={() => setSearchBy('ingredients')}
             >

@@ -8,7 +8,7 @@ const SearchView = () => {
   return (
     <Wrapper searchOpen={searchOpen} tabIndex={searchOpen ? 1 : -1}>
       <div>
-        <button onClick={() => setSearchOpen(false)}>
+        <button aria-label='close sidebar' onClick={() => setSearchOpen(false)}>
           <IoMdClose />
         </button>
         <SearchInput placeholder='Find A Recipe' />
