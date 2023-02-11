@@ -1,7 +1,7 @@
 import { IoMdClose } from 'react-icons/io';
 import { useRecipesContext } from 'context/recipes_context';
 import { Wrapper } from 'assets/wrappers/SearchView.styles';
-import SearchInput from './SearchInput';
+import { SearchInput } from 'components';
 
 const SearchView = () => {
   const { searchOpen, setSearchOpen } = useRecipesContext();

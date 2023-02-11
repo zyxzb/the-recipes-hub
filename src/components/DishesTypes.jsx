@@ -1,7 +1,7 @@
 import { dishType } from 'utils/constants';
 import styled from 'styled-components';
 import { useRecipesContext } from 'context/recipes_context';
-import Card from './Card';
+import { Card } from 'components';
 
 const Wrapper = styled.div`
   display: flex;

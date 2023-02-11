@@ -7,6 +7,11 @@ import LinkBtn from './LinkBtn';
 import DishesTypes from './DishesTypes';
 import FunctionalButtons from './FunctionalButtons';
 import InfoError from './InfoError';
+import SearchInput from './SearchInput';
+import BannerButtons from './BannerButtons';
+import Sidebar from './Sidebar';
+import SearchView from './SearchView';
+import TextSection from './TextSection';
 
 export {
   Nav,
@@ -18,4 +23,9 @@ export {
   DishesTypes,
   FunctionalButtons,
   InfoError,
+  SearchInput,
+  BannerButtons,
+  Sidebar,
+  SearchView,
+  TextSection,
 };

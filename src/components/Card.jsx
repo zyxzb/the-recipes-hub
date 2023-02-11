@@ -5,7 +5,7 @@ import { MdFindReplace, MdOutlineFormatListBulleted } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Wrapper } from 'assets/wrappers/Card.styles';
 import noImage from 'assets/images/unsplash-banner.jpg';
-import { trimText } from 'utils/constants';
+import { trimText } from 'utils/helpers';
 import { toast } from 'react-toastify';
 
 const Card = ({ recipe, likeIcon, deleteIcon }) => {

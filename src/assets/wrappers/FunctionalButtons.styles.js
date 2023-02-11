@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     border: none;
     padding: 10px;
     width: max-content;
+    color: black;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 1.2rem;

@@ -35,6 +35,7 @@ export const NavWrapper = styled.nav`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
     &.active {
       font-weight: bold;
     }
@@ -42,11 +43,16 @@ export const NavWrapper = styled.nav`
       display: none;
     }
   }
+  .links,
   .icons {
     display: flex;
+    @media (min-width: 768px) {
+      min-width: 250px;
+    }
+  }
+  .icons {
     svg {
       font-size: 2.5rem;
-      margin-right: 0.5rem;
       color: black;
     }
     button {
@@ -62,26 +68,42 @@ export const NavWrapper = styled.nav`
       justify-content: center;
       align-items: center;
       position: relative;
+      svg,
+      .counter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
       svg {
         color: ${({ recipesAmount }) =>
           recipesAmount > 0 ? '#ff7575' : '#565656'};
-        position: relative;
+      }
+      .counter {
+        position: absolute;
+        color: ${({ recipesAmount }) =>
+          recipesAmount > 0 ? 'black' : 'white'};
       }
     }
-    .counter {
-      position: absolute;
-      left: 16px;
-      color: ${({ recipesAmount }) => (recipesAmount > 0 ? 'black' : 'white')};
+    .text {
+      margin-left: 25px;
     }
   }
   .links {
-    display: flex;
     align-items: center;
+    justify-content: end;
   }
   ${Wrapper} {
     width: 180px;
     background: transparent;
     box-shadow: none;
     backdrop-filter: none;
+  }
+  img {
+    height: 50px;
+    display: none;
+    @media (min-width: 768px) {
+      display: flex;
+    }
   }
 `;

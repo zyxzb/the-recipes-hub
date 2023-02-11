@@ -2,7 +2,7 @@ import { TbSeedingOff, TbCurrencyDollar } from 'react-icons/tb';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { MdOutlineRoomService } from 'react-icons/md';
 import { RiHandHeartLine } from 'react-icons/ri';
-import { formatPrice } from 'utils/constants';
+import { formatPrice } from 'utils/helpers';
 import { Wrapper } from 'assets/wrappers/IconsSection.styles';
 
 const IconsSection = ({ singleRecipe, singleIsLoading }) => {

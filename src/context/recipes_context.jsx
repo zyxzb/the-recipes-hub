@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { searchRecipesUrl } from 'utils/constants';
+import { searchRecipesUrl, baseUrl, apiKey } from 'utils/constants';
 import axios from 'axios';
 
 const getLocalStorage = () => {
@@ -35,8 +35,6 @@ export const RecipesProvider = ({ children }) => {
   const [ingredientsLoading, setIngredientsLoading] = useState(false);
   const [ingredientsRecipes, setIngredientsRecipes] = useState([]);
 
-  console.log(ingredientsUrl, ingredientsRecipes);
-
   const fetchRecipes = async () => {
     console.log('Fetching recipes (Meal Type - 1)');
     setIsLoading(true);
@@ -58,7 +56,7 @@ export const RecipesProvider = ({ children }) => {
     setSingleIsLoading(true);
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/${singleRecipeId}/information?apiKey=${process.env.REACT_APP_SPOONACULAR_API}`,
+        `${baseUrl}${singleRecipeId}/information?${apiKey}`,
       );
       const recipe = response.data;
       setSingleRecipe(recipe);
@@ -74,7 +72,7 @@ export const RecipesProvider = ({ children }) => {
     setSimilarIsLoading(true);
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/${similarRecipesId}/similar?apiKey=${process.env.REACT_APP_SPOONACULAR_API}`,
+        `${baseUrl}${similarRecipesId}/similar?${apiKey}`,
       );
       const recipes = response.data;
       setSimilarRecipes(recipes);
@@ -107,7 +105,7 @@ export const RecipesProvider = ({ children }) => {
     try {
       const response = await axios.get(
         // this request needs '&' instead of '?' before apiKey
-        `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsUrl}&apiKey=${process.env.REACT_APP_SPOONACULAR_API}`,
+        `${baseUrl}findByIngredients?ingredients=${ingredientsUrl}&${apiKey}}`,
       );
       const recipes = response.data;
       setIngredientsRecipes(recipes);

@@ -2,8 +2,9 @@ import { NavLink } from 'react-router-dom';
 import { NavWrapper } from 'assets/wrappers/Nav.styles';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { AiFillHeart } from 'react-icons/ai';
-import SearchInput from './SearchInput';
+import { SearchInput } from 'components';
 import { useRecipesContext } from 'context/recipes_context';
+import Logo from 'assets/images/logo.png';
 
 const Nav = () => {
   const { setSearchOpen, setSidebarOpen, savedRecipes, setSearchBy } =
@@ -18,12 +19,17 @@ const Nav = () => {
         </button>
         <NavLink to='saved-recipes'>
           <div className='counter-container'>
-            <AiFillHeart /> Saved {recipesAmount !== 1 ? 'Recipes' : 'Recipe'}
-            <span className='counter'>{recipesAmount}</span>
+            <AiFillHeart />
+            <span className='counter'>
+              {recipesAmount > 99 ? '99+' : recipesAmount}
+            </span>
           </div>
+          <span className='text'>
+            Saved {recipesAmount !== 1 ? 'Recipes' : 'Recipe'}
+          </span>
         </NavLink>
       </div>
-      <h1>The Recipe Hub</h1>
+      <img src={Logo} alt='logo' srcSet='' />
       <div className='links'>
         <NavLink to='/'>HOME</NavLink>
         <div

@@ -1,9 +1,10 @@
-import { Banner, DishesTypes } from 'components';
+import { Banner, DishesTypes, TextSection } from 'components';
 
 const HomePage = () => {
   return (
     <>
       <Banner />
+      <TextSection />
       <DishesTypes />
     </>
   );

@@ -30,7 +30,7 @@ h1{
   font-size: 2rem;
 }
 h2{
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 .m-50{
   margin: 50px auto;

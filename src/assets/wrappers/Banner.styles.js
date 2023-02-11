@@ -37,21 +37,4 @@ export const Wrapper = styled.section`
       user-select: none;
     }
   }
-  .find-by {
-    display: flex;
-    gap: 10px;
-    button {
-      flex: 1;
-      text-transform: capitalize;
-      height: 32px;
-      font-size: 1rem;
-      cursor: pointer;
-      background-color: transparent;
-      border: 1px solid gray;
-      font-style: italic;
-      &.active {
-        font-weight: bold;
-      }
-    }
-  }
 `;
