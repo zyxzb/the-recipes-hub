@@ -5,14 +5,17 @@ import { AiFillHeart } from 'react-icons/ai';
 import { SearchInput } from 'components';
 import { useRecipesContext } from 'context/recipes_context';
 import Logo from 'assets/images/logo.png';
+import ModeToggler from './ModeToggler';
+import { useThemeContext } from 'context/theme_context';
 
 const Nav = () => {
   const { setSearchOpen, setSidebarOpen, savedRecipes, setSearchBy } =
     useRecipesContext();
+  const { darkMode } = useThemeContext();
   let recipesAmount = savedRecipes.length;
 
   return (
-    <NavWrapper recipesAmount={recipesAmount}>
+    <NavWrapper recipesAmount={recipesAmount} darkMode={darkMode}>
       <div className='icons'>
         <button aria-label='open sidebar'>
           <RxHamburgerMenu onClick={() => setSidebarOpen(true)} />
@@ -31,6 +34,9 @@ const Nav = () => {
       </div>
       <img src={Logo} alt='logo' srcSet='' />
       <div className='links'>
+        <div className='toggler'>
+          <ModeToggler />
+        </div>
         <NavLink to='/'>HOME</NavLink>
         <div
           onClick={() => {

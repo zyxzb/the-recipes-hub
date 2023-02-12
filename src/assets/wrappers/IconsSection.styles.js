@@ -17,11 +17,12 @@ export const Wrapper = styled.div`
     align-items: center;
     text-transform: capitalize;
     margin: 0 5px;
+    color: ${({ theme }) => theme.text};
     span {
-      color: ${({ singleIsLoading }) =>
-        singleIsLoading ? 'transparent' : 'black'};
-      background-color: ${({ singleIsLoading }) =>
-        singleIsLoading ? '#eee' : 'transparent'};
+      color: ${({ singleIsLoading, theme }) =>
+        singleIsLoading ? 'transparent' : theme.text};
+      background-color: ${({ singleIsLoading, theme }) =>
+        singleIsLoading ? theme.text : 'transparent'};
     }
   }
   svg {

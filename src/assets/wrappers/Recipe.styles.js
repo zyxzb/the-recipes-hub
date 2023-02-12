@@ -33,10 +33,12 @@ export const Wrapper = styled.div`
     summary {
       margin: 0 auto 50px;
       text-align: justify;
-      background-color: #eee;
+      background-color: ${({ theme }) => theme.summary};
+      color: ${({ theme }) => theme.text};
       padding: 30px;
     }
     div {
+      color: ${({ theme }) => theme.text};
       display: flex;
       flex: 1;
       flex-direction: column;

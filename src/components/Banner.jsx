@@ -5,12 +5,14 @@ import { Wrapper } from 'assets/wrappers/Banner.styles';
 import { useRecipesContext } from 'context/recipes_context';
 import { TypeAnimation } from 'react-type-animation';
 import { SearchInput, BannerButtons } from 'components';
+import { useThemeContext } from 'context/theme_context';
 
 const Banner = () => {
   const { searchBy } = useRecipesContext();
+  const { darkMode } = useThemeContext();
 
   return (
-    <Wrapper>
+    <Wrapper darkMode={darkMode}>
       <div className='banner-container'>
         <picture>
           <source

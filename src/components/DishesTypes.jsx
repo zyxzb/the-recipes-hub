@@ -28,7 +28,8 @@ const Wrapper = styled.div`
     }
     &.active {
       font-weight: bold;
-      border: 1px solid black;
+      color: ${({ theme }) => theme.title};
+      border: 1px solid ${({ theme }) => theme.title};
     }
   }
 `;

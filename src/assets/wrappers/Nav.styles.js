@@ -28,7 +28,7 @@ export const NavWrapper = styled.nav`
   }
   a {
     margin: 0 10px;
-    color: black;
+    color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};
     text-decoration: none;
     border-bottom: 1px solid transparent;
     display: flex;
@@ -92,6 +92,11 @@ export const NavWrapper = styled.nav`
   .links {
     align-items: center;
     justify-content: end;
+    position: relative;
+    .toggler {
+      position: absolute;
+      left: -80px;
+    }
   }
   ${Wrapper} {
     width: 180px;

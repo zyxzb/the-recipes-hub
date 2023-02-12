@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     background-color: transparent;
     border: 1px solid gray;
     font-style: italic;
-    color: black;
+    color: ${({ theme }) => theme.text};
     &.active {
       font-weight: bold;
     }

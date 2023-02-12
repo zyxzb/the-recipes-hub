@@ -14,6 +14,7 @@ import {
 } from 'pages';
 import RootLayout from 'layouts/RootLayout';
 import { RecipesProvider } from 'context/recipes_context';
+import { ThemeContextProvider } from 'context/theme_context';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,9 +34,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <RecipesProvider>
-      <RouterProvider router={router} />
-    </RecipesProvider>
+    <ThemeContextProvider>
+      <RecipesProvider>
+        <RouterProvider router={router} />
+      </RecipesProvider>
+    </ThemeContextProvider>
   );
 }
 

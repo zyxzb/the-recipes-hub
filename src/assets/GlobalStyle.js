@@ -16,6 +16,8 @@ html{
 }
 body{
   font-family: 'Montserrat', sans-serif;
+  background-color: ${({ theme }) => theme.body};
+  transition: background-color 0.50s linear;
 }
 main{
   min-height:calc(100vh - 160px) ;
@@ -25,6 +27,13 @@ a, button{
 }
 h1, h2, h3, h4, h5{
   text-transform: capitalize;
+  color: ${({ theme }) => theme.title};
+}
+p, li{
+  color: ${({ theme }) => theme.text};
+}
+a, li, h2, h3, h4, h5, summary, footer, button {
+  transition: all 0.50s linear;
 }
 h1{
   font-size: 2rem;
@@ -53,14 +62,14 @@ h2{
   margin: 0 auto;
 }
 .cards-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    gap: 30px;
-    flex-wrap: wrap;
-    text-align: center;
-    min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+  min-height: 300px;
 }
 @media print {
   @page {
