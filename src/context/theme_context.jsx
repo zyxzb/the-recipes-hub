@@ -8,7 +8,7 @@ const getLocalStorage = () => {
   if (localStorageTheme) {
     return JSON.parse(localStorage.getItem('isDarkTheme'));
   } else {
-    return [];
+    return false;
   }
 };
 
