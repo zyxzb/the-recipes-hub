@@ -34,6 +34,7 @@ export const RecipesProvider = ({ children }) => {
   const [ingredientsArray, setIngredientsArray] = useState([]);
   const [ingredientsLoading, setIngredientsLoading] = useState(false);
   const [ingredientsRecipes, setIngredientsRecipes] = useState([]);
+  console.log(ingredientsUrl);
 
   const fetchRecipes = async () => {
     console.log('Fetching recipes (Meal Type - 1)');
@@ -105,7 +106,7 @@ export const RecipesProvider = ({ children }) => {
     try {
       const response = await axios.get(
         // this request needs '&' instead of '?' before apiKey
-        `${baseUrl}findByIngredients?ingredients=${ingredientsUrl}&${apiKey}}`,
+        `${baseUrl}findByIngredients?ingredients=${ingredientsUrl}&${apiKey}`,
       );
       const recipes = response.data;
       setIngredientsRecipes(recipes);
