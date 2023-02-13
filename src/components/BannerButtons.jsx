@@ -14,8 +14,10 @@ const Wrapper = styled.div`
     border: 1px solid gray;
     font-style: italic;
     color: ${({ theme }) => theme.text};
+    transition: none;
     &.active {
       font-weight: bold;
+      border: 2px solid gray;
     }
   }
 `;

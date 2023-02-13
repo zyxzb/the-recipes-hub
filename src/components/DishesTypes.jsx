@@ -1,41 +1,31 @@
 import { dishType } from 'utils/constants';
-import styled from 'styled-components';
 import { useRecipesContext } from 'context/recipes_context';
 import { Card } from 'components';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  ul {
-    display: flex;
-    padding-top: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  li {
-    list-style-type: none;
-    padding: 10px 20px;
-    margin: 10px 10px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: capitalize;
-    transition: border 0.3s ease;
-    &:hover {
-      border: 1px solid black;
-    }
-    &.active {
-      font-weight: bold;
-      color: ${({ theme }) => theme.title};
-      border: 1px solid ${({ theme }) => theme.title};
-    }
-  }
-`;
+import { Wrapper } from 'assets/wrappers/DishesTypes.styles';
+import { useState } from 'react';
 
 const DishesTypes = () => {
   const { recipes, dishTypeName, setDishTypeName } = useRecipesContext();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [numberOfRecipes, setNumberOfRecipes] = useState(10);
+
+  const loadedRecipes = recipes.slice(0, numberOfRecipes);
+  const allPages = Math.ceil(recipes.length / 10);
+
+  const loadMoreRecipes = () => {
+    if (currentPage < allPages) {
+      setNumberOfRecipes((prevState) => prevState + 10);
+      setCurrentPage((prevState) => prevState + 1);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <Wrapper className='section-90'>
@@ -47,7 +37,11 @@ const DishesTypes = () => {
               <li
                 key={index}
                 className={dishTypeName === type ? 'active' : ''}
-                onClick={() => setDishTypeName(type)}
+                onClick={() => {
+                  setDishTypeName(type);
+                  setNumberOfRecipes(10);
+                  setCurrentPage(1);
+                }}
               >
                 {type}
               </li>
@@ -56,10 +50,20 @@ const DishesTypes = () => {
         </div>
       </div>
       <div className='cards-container'>
-        {recipes.map((recipe, index) => (
+        {loadedRecipes.map((recipe, index) => (
           <Card recipe={recipe} key={index} likeIcon={true} />
         ))}
       </div>
+      {currentPage === allPages ? (
+        <button className='mt-50' type='button' onClick={scrollToTop}>
+          <span>No more recipes</span>
+          <span>back Home</span>
+        </button>
+      ) : (
+        <button className='mt-50' type='button' onClick={loadMoreRecipes}>
+          Load more recipes...
+        </button>
+      )}
     </Wrapper>
   );
 };

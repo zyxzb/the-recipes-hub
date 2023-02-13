@@ -34,14 +34,13 @@ export const RecipesProvider = ({ children }) => {
   const [ingredientsArray, setIngredientsArray] = useState([]);
   const [ingredientsLoading, setIngredientsLoading] = useState(false);
   const [ingredientsRecipes, setIngredientsRecipes] = useState([]);
-  console.log(ingredientsUrl);
 
   const fetchRecipes = async () => {
     console.log('Fetching recipes (Meal Type - 1)');
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `${searchRecipesUrl}&query=${dishTypeName}`,
+        `${searchRecipesUrl}&query=${dishTypeName}&number=50`,
       );
       const recipes = response.data.results;
       setRecipes(recipes);

@@ -72,6 +72,10 @@ h2{
   min-height: 300px;
 }
 @media print {
+  *{
+    background: transparent !important;
+    color: #000 !important;
+  }
   @page {
     margin-top:-6rem;
   }
@@ -80,7 +84,6 @@ h2{
   }
   article{
     a{
-      color: black;
       text-decoration: none;
     }
     summary{
