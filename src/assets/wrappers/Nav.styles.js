@@ -17,15 +17,6 @@ export const NavWrapper = styled.nav`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  h1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    @media (min-width: 992px) {
-      display: block;
-    }
-  }
   a {
     margin: 0 10px;
     color: ${({ darkMode }) => (darkMode ? 'white' : 'black')};
@@ -46,9 +37,6 @@ export const NavWrapper = styled.nav`
   .links,
   .icons {
     display: flex;
-    @media (min-width: 768px) {
-      min-width: 250px;
-    }
   }
   .icons {
     svg {
@@ -103,12 +91,5 @@ export const NavWrapper = styled.nav`
     background: transparent;
     box-shadow: none;
     backdrop-filter: none;
-  }
-  img {
-    height: 50px;
-    display: none;
-    @media (min-width: 768px) {
-      display: flex;
-    }
   }
 `;

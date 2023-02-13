@@ -4,7 +4,6 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { AiFillHeart } from 'react-icons/ai';
 import { SearchInput } from 'components';
 import { useRecipesContext } from 'context/recipes_context';
-import Logo from 'assets/images/logo.png';
 import ModeToggler from './ModeToggler';
 import { useThemeContext } from 'context/theme_context';
 
@@ -32,7 +31,6 @@ const Nav = () => {
           </span>
         </NavLink>
       </div>
-      <img src={Logo} alt='logo' srcSet='' />
       <div className='links'>
         <div className='toggler'>
           <ModeToggler />

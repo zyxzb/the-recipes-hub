@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
 
   button {
     background-color: transparent;
+    transition: none;
     border: none;
     cursor: pointer;
     width: max-content;
