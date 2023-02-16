@@ -9,6 +9,7 @@ const SearchedPage = () => {
   const location = useLocation();
   const { searchRecipes, setSearchValue, searchValue, searchIsLoading } =
     useRecipesContext();
+  console.log(searchValue);
 
   useEffect(() => {
     setSearchValue(name);
@@ -35,7 +36,9 @@ const SearchedPage = () => {
   return (
     <div className='mt-100'>
       <div className='section-90'>
-        <h1 className='m-50 text-center'>Recipes based on: {searchValue}</h1>
+        <h1 data-testid='h1-title' className='m-50 text-center'>
+          Recipes based on: {searchValue}
+        </h1>
         <div className='cards-container'>
           {searchRecipes.length > 0 ? (
             searchRecipes.map((recipe) => (

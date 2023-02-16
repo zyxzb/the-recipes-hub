@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import { Wrapper } from 'assets/wrappers/SearchInput.styles';
 import { useRecipesContext } from 'context/recipes_context';
 import { useNavigate } from 'react-router-dom';
+import { onlyLettersWithSpace } from 'utils/helpers';
 
 const SearchInput = ({ placeholder, disabled }) => {
   const { setSearchOpen, searchBy, setIngredientsUrl, setIngredientsArray } =
@@ -12,9 +13,18 @@ const SearchInput = ({ placeholder, disabled }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formValue = formRef.current.value;
+    const formValue = formRef.current.value.replace(/\s+/g, ' ').trim();
     const url = formValue.split(' ').join('-');
-    if (formValue.length > 0) {
+
+    if (formValue === '') {
+      alert('Enter the name of the meal/ingredients');
+    }
+
+    if (formValue.length > 0 && !onlyLettersWithSpace(formValue)) {
+      alert('Enter the name of the dish/ingredients using letters only');
+    }
+
+    if (formValue.length > 0 && onlyLettersWithSpace(formValue)) {
       setSearchOpen(false);
       if (searchBy === 'name') {
         navigate(`/search/${url}`);
@@ -46,6 +56,7 @@ const SearchInput = ({ placeholder, disabled }) => {
         type='text'
         placeholder={placeholder}
         disabled={disabled}
+        data-testid='banner-input'
       />
     </Wrapper>
   );

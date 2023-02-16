@@ -8,7 +8,7 @@ import noImage from 'assets/images/unsplash-banner.jpg';
 import { trimText } from 'utils/helpers';
 import { toast } from 'react-toastify';
 
-const Card = ({ recipe, likeIcon, deleteIcon }) => {
+const Card = ({ recipe, likeIcon, deleteIcon, testID }) => {
   const { image, title, id } = recipe;
   const {
     isLoading,
@@ -66,7 +66,7 @@ const Card = ({ recipe, likeIcon, deleteIcon }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper data-testid={`recipe-card-${testID}`}>
       <img src={image || noImage} alt={title} className='image' />
       {likeIcon && (
         <AiFillHeart

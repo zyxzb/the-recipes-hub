@@ -13,3 +13,7 @@ export const trimText = (text) => {
   }
   return text;
 };
+
+export const onlyLettersWithSpace = (text) => {
+  return /^[a-zA-Z\s]*$/.test(text);
+};

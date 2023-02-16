@@ -136,7 +136,7 @@ export const RecipesProvider = ({ children }) => {
   }, [similarRecipesId]);
 
   useEffect(() => {
-    if (searchValue.length > 0) {
+    if (searchValue !== '') {
       fetchSearchRecipes();
     }
     //eslint-disable-next-line

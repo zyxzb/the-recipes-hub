@@ -51,7 +51,7 @@ const DishesTypes = () => {
       </div>
       <div className='cards-container'>
         {loadedRecipes.map((recipe, index) => (
-          <Card recipe={recipe} key={index} likeIcon={true} />
+          <Card recipe={recipe} key={index} likeIcon={true} testID={index} />
         ))}
       </div>
       {currentPage === allPages ? (
