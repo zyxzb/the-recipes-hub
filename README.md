@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# The Recipes Hub, Powered By Spoonacular API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Recipes Hub, where we believe that cooking is an art form and a means of self-expression. Our website is powered by the Spoonacular API, providing you with access to a vast collection of the latest and greatest recipes from around the world. Whether you're a seasoned chef or just starting out, our recipes will inspire you to get creative in the kitchen and try something new. From classic dishes to innovative creations, you'll find everything you need to take your cooking to the next level. With the Spoonacular API, we bring you the best of the culinary world right at your fingertips. So why wait? Join us on this culinary journey and unleash your creativity today!
 
-## Available Scripts
+<font size='5'>[Search for a recipe here 🍜](https://the-recipehub.netlify.app/ "The Recipe Hub")</font> 
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Single Page Web Application - React
+- Light/dark mode toggle
+- Recipes search by name
+- Recipes search by ingredients
+- Recipes search by type
+- Searching for a similar recipe
+- Saving your favorite recipes in the Local Storage
+- Printing your favorite recipes
+- Search Engine Optimization (SEO)
+- Styled with Styled Components
+- RWD
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p align="center" width="100%">
+  <img src="./src/assets/images/1.jpg" title="desktop - dark">
+  <img src="./src/assets/images/2.jpg" title="desktop - light">
+  <img src="./src/assets/images/3.jpg" title="PageSpeed Insights - result">
+</p>
+<p align="center">
+  <img src="./src/assets/images/4.png" width="33%" title="mobile - dark">
+  <img src="./src/assets/images/5.png"  width="33%" title="mobile - light">  
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

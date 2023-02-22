@@ -37,7 +37,7 @@ const SearchedPage = () => {
     <div className='mt-100'>
       <div className='section-90'>
         <h1 data-testid='h1-title' className='m-50 text-center'>
-          Recipes based on: {searchValue}
+          {`Recipes based on: ${searchValue}`}
         </h1>
         <div className='cards-container'>
           {searchRecipes.length > 0 ? (
